@@ -1,6 +1,8 @@
 package com.cookieIT.exampleApp.ExampleApp.rest;
 
 import com.cookieIT.exampleApp.ExampleApp.application.service.TestManager;
+import com.cookieIT.exampleApp.ExampleApp.domain.entity.Person;
+import com.cookieIT.exampleApp.ExampleApp.rest.model.PersonRestModel;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,5 +29,17 @@ public class ShowMessageAPI {
     public ResponseEntity<String> showMessage(){
         testManager.showMessageForUser();
         return ResponseEntity.ok().contentType(MediaType.TEXT_PLAIN).body("DONE");
+    }
+
+    @ApiOperation(value = "Show person")
+    @RequestMapping(method = RequestMethod.GET, path = "/person")
+    public PersonRestModel showPerson(){
+        PersonRestModel personRestModel = new PersonRestModel();
+        Person person = testManager.showPerson();
+        personRestModel.setId(person.getId());
+        personRestModel.setFirstName(person.getFirstName());
+        personRestModel.setLastName(person.getLastName());
+
+        return personRestModel;
     }
 }

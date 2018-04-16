@@ -1,7 +1,9 @@
 package com.cookieIT.exampleApp.ExampleApp.application;
 
 import com.cookieIT.exampleApp.ExampleApp.application.service.TestManager;
+import com.cookieIT.exampleApp.ExampleApp.domain.entity.Person;
 import com.cookieIT.exampleApp.ExampleApp.domain.service.TestService;
+import com.cookieIT.exampleApp.ExampleApp.rest.model.PersonRestModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,4 +21,11 @@ public class TestManagerImpl implements TestManager {
     public void showMessageForUser() {
         testService.showMessage();
     }
+
+    @Override
+    public Person showPerson() {
+        return testService.showPerson();
+    }
+
+
 }
