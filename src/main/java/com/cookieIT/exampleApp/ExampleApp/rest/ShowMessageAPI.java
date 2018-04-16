@@ -4,6 +4,8 @@ import com.cookieIT.exampleApp.ExampleApp.application.service.TestManager;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,7 +24,8 @@ public class ShowMessageAPI {
 
     @ApiOperation(value = "Show message")
     @RequestMapping(method = RequestMethod.GET, path = "/showMessage")
-    public void showMessage(){
+    public ResponseEntity<String> showMessage(){
         testManager.showMessageForUser();
+        return ResponseEntity.ok().contentType(MediaType.TEXT_PLAIN).body("DONE");
     }
 }
