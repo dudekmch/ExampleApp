@@ -1,4 +1,4 @@
-package com.cookieIT.exampleApp.ExampleApp.rest.model;
+package com.cookieIT.exampleApp.ExampleApp.common.response;
 
 public class PersonRestModel {
 
