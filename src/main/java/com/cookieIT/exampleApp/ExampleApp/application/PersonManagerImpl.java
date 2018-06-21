@@ -9,16 +9,21 @@ import org.springframework.stereotype.Service;
 @Service
 public class PersonManagerImpl implements PersonManager {
 
-    private final PersonService testService;
+    private final PersonService personService;
 
     @Autowired
-    public PersonManagerImpl(PersonService testService) {
-        this.testService = testService;
+    public PersonManagerImpl(PersonService personService) {
+        this.personService = personService;
     }
 
     @Override
     public PersonDTO showPerson(Long id) {
-        return testService.getPersonById(id);
+        return personService.getPersonById(id);
+    }
+
+    @Override
+    public PersonDTO createPerson(PersonDTO personDTO){
+       return personService.createPerson(personDTO);
     }
 
 

@@ -5,4 +5,6 @@ import com.cookieIT.exampleApp.ExampleApp.common.dto.PersonDTO;
 public interface PersonService {
 
     PersonDTO getPersonById(Long id);
+
+    PersonDTO createPerson(PersonDTO personDTO);
 }
