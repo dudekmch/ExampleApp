@@ -6,6 +6,8 @@ import com.cookieIT.exampleApp.ExampleApp.domain.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class PersonManagerImpl implements PersonManager {
 
@@ -17,14 +19,18 @@ public class PersonManagerImpl implements PersonManager {
     }
 
     @Override
+    public List<PersonDTO> getAllPersons() {
+        return personService.getAllPersons();
+    }
+
+    @Override
     public PersonDTO showPerson(Long id) {
         return personService.getPersonById(id);
     }
 
     @Override
-    public PersonDTO createPerson(PersonDTO personDTO){
-       return personService.createPerson(personDTO);
+    public PersonDTO createPerson(PersonDTO personDTO) {
+        return personService.createPerson(personDTO);
     }
-
 
 }

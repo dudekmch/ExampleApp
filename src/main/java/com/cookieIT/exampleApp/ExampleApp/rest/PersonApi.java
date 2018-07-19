@@ -13,6 +13,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @RequestMapping("/rest/v1")
@@ -31,14 +32,20 @@ public class PersonApi {
         this.requestPersonToDTOMapper = requestPersonToDTOMapper;
     }
 
-    @ApiOperation(value = "Show person")
-    @RequestMapping(method = RequestMethod.GET, path = "/person/{id}", produces = "application/json")
+    @ApiOperation(value="Get all persons")
+    @GetMapping(path = "/persons", produces = "application/json")
+    public List<PersonRestModel> getAllPersons(){
+        return personDTOMapper.mapListDTOToListRestModel(personManager.getAllPersons());
+    }
+
+    @ApiOperation(value = "Get person")
+    @GetMapping(path = "/person/{id}", produces = "application/json")
     public PersonRestModel showPerson(@PathVariable("id") Long id){
         return personDTOMapper.mapDTOToRestModel(personManager.showPerson(id));
     }
 
     @ApiOperation(value = "Create person")
-    @RequestMapping(method = RequestMethod.POST, path = "/person/create", produces = "application/json")
+    @PostMapping(path = "/person/create", produces = "application/json")
     @ResponseStatus(HttpStatus.CREATED)
     @ResponseBody
     public PersonRestModel createPerson(@Valid @RequestBody CreatePersonRequest createPersonRequest) {
