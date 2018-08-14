@@ -1,4 +1,4 @@
-package com.cookieIT.exampleApp.ExampleApp.rest.Request;
+package com.cookieIT.exampleApp.ExampleApp.rest.request;
 
 import io.swagger.annotations.ApiModelProperty;
 
