@@ -2,7 +2,7 @@ package com.cookieIT.exampleApp.ExampleApp.common.mapper.responseMapper.impl;
 
 import com.cookieIT.exampleApp.ExampleApp.common.dto.PersonDTO;
 import com.cookieIT.exampleApp.ExampleApp.common.mapper.responseMapper.PersonDTOMapper;
-import com.cookieIT.exampleApp.ExampleApp.common.response.PersonRestModel;
+import com.cookieIT.exampleApp.ExampleApp.rest.response.PersonRestModel;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

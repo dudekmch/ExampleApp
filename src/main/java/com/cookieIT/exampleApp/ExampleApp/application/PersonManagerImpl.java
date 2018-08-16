@@ -1,12 +1,12 @@
 package com.cookieIT.exampleApp.ExampleApp.application;
 
-import com.cookieIT.exampleApp.ExampleApp.application.service.PersonManager;
-import com.cookieIT.exampleApp.ExampleApp.common.dto.PersonDTO;
-import com.cookieIT.exampleApp.ExampleApp.domain.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
+import com.cookieIT.exampleApp.ExampleApp.application.service.PersonManager;
+import com.cookieIT.exampleApp.ExampleApp.common.dto.PageDTO;
+import com.cookieIT.exampleApp.ExampleApp.common.dto.PersonDTO;
+import com.cookieIT.exampleApp.ExampleApp.domain.entity.criteria.PersonCriteria;
+import com.cookieIT.exampleApp.ExampleApp.domain.service.PersonService;
 
 @Service
 public class PersonManagerImpl implements PersonManager {
@@ -19,8 +19,8 @@ public class PersonManagerImpl implements PersonManager {
     }
 
     @Override
-    public List<PersonDTO> getAllPersons() {
-        return personService.getAllPersons();
+    public PageDTO<PersonDTO> getAllPersons(PersonCriteria personCriteria) {
+        return personService.getAllPersons(personCriteria);
     }
 
     @Override

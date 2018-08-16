@@ -1,12 +1,12 @@
 package com.cookieIT.exampleApp.ExampleApp.application.service;
 
+import com.cookieIT.exampleApp.ExampleApp.common.dto.PageDTO;
 import com.cookieIT.exampleApp.ExampleApp.common.dto.PersonDTO;
-
-import java.util.List;
+import com.cookieIT.exampleApp.ExampleApp.domain.entity.criteria.PersonCriteria;
 
 public interface PersonManager {
 
-    List<PersonDTO> getAllPersons();
+    PageDTO<PersonDTO> getAllPersons(PersonCriteria personCriteria);
 
     PersonDTO showPerson(Long id);
 
