@@ -20,7 +20,7 @@ public class PersonPredicates {
             builder.and(equalsFirstName(criteria.getFirstName()));
         }
 
-        if (criteria.getId() != null) {
+        if (criteria.getLastName() != null) {
             builder.and(equalsLastName(criteria.getLastName()));
         }
 
