@@ -47,7 +47,7 @@ public class PersonApi {
     public PagedResponse<PersonRestModel> getAllPersons(@RequestParam int page, @RequestParam int pageSize,
             @RequestParam(required = false) Sort.Direction sortDirection, @RequestParam(required = false) PersonSortField.Field sortField,
             @RequestParam(required = false) Long id, @RequestParam(required = false) String firstName,
-            @RequestParam(required = false) String lastName) {
+            @RequestParam(required = false) String lastName, @RequestParam(required = false) String personSearchString) {
 
         PersonCriteria personCriteria = PersonCriteria.builder(page, pageSize)
                                                       .withSortDirection(sortDirection)
@@ -55,6 +55,7 @@ public class PersonApi {
                                                       .withId(id)
                                                       .withFirstName(firstName)
                                                       .withLastName(lastName)
+                                                      .withPersonSearchString(personSearchString)
                                                       .build();
 
         PageDTO<PersonDTO> personPage = personManager.getAllPersons(personCriteria);

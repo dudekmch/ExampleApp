@@ -11,6 +11,7 @@ public class PersonCriteria extends PageCriteria {
     private String lastName;
     private PersonSortField.Field sortField;
     private Sort.Direction sortDirection;
+    private String personSearchString;
 
     private PersonCriteria(int page, int pageSize) {
         super(page, pageSize);
@@ -34,6 +35,10 @@ public class PersonCriteria extends PageCriteria {
 
     public Sort.Direction getSortDirection() {
         return sortDirection;
+    }
+
+    public String getPersonSearchString() {
+        return personSearchString;
     }
 
     public static Builder builder(int page, int pageSize) {
@@ -70,6 +75,11 @@ public class PersonCriteria extends PageCriteria {
 
         public Builder withLastName(String lastName) {
             this.personCriteria.lastName = lastName;
+            return this;
+        }
+
+        public Builder withPersonSearchString(String personSearchString) {
+            this.personCriteria.personSearchString = personSearchString;
             return this;
         }
 
