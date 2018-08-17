@@ -31,7 +31,7 @@ public class AdPersonRepositoryImpl implements AdPersonRepository {
 
         AndFilter andFilter = new AndFilter();
         andFilter.and(new EqualsFilter(ATTRIBUTE_OBJECT_CLASS, "person"));
-        andFilter.and(new EqualsFilter(ATTRIBUTE_MEMBER_OF, "cn=" + groupName + ",ou=groups,dc=memorynotfound,dc=com"));
+        andFilter.and(new EqualsFilter(ATTRIBUTE_MEMBER_OF, "cn=" + groupName + ",ou=groups,dc=exampleapp,dc=com"));
         return ldapTemplate.search("", andFilter.encode(), new UserAttributesMapper());
     }
 

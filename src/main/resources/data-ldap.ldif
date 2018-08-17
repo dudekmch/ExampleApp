@@ -1,39 +1,35 @@
-dn: dc=memorynotfound,dc=com
+dn: dc=exampleapp,dc=com
 objectclass: top
 objectclass: domain
 objectclass: extensibleObject
-dc: memorynotfound
+dc: exampleapp
 
 # Organizational Units
-dn: ou=groups,dc=memorynotfound,dc=com
+dn: ou=groups,dc=exampleapp,dc=com
 objectclass: top
 objectclass: organizationalUnit
 ou: groups
 
-dn: ou=people,dc=memorynotfound,dc=com
+dn: ou=people,dc=exampleapp,dc=com
 objectclass: top
 objectclass: organizationalUnit
 ou: people
 
 # Create Groups
-dn: cn=developers,ou=groups,dc=memorynotfound,dc=com
+dn: cn=developers,ou=groups,dc=exampleapp,dc=com
 objectclass: top
 objectclass: groupOfUniqueNames
 cn: developers
 ou: developer
-#uniqueMember: uid=miroslaw,ou=people,dc=memorynotfound,dc=com
-#uniqueMember: uid=pawel,ou=people,dc=memorynotfound,dc=com
 
-dn: cn=managers,ou=groups,dc=memorynotfound,dc=com
+dn: cn=managers,ou=groups,dc=exampleapp,dc=com
 objectclass: top
 objectclass: groupOfUniqueNames
 cn: managers
 ou: manager
-#uniqueMember: uid=milena,ou=people,dc=memorynotfound,dc=com
-
 
 # Create People
-dn: uid=pawel,ou=people,dc=memorynotfound,dc=com
+dn: uid=pdudek,ou=people,dc=exampleapp,dc=com
 objectclass: top
 objectclass: person
 objectclass: organizationalPerson
@@ -41,10 +37,10 @@ objectclass: inetOrgPerson
 cn: Pawel Dudek
 sn: Pawel
 uid: pdudek
-password: secret
-memberOf: cn=developers,ou=groups,dc=memorynotfound,dc=com
+userPassword: pdudek
+memberOf: cn=developers,ou=groups,dc=exampleapp,dc=com
 
-dn: uid=milena,ou=people,dc=memorynotfound,dc=com
+dn: uid=mwozniak,ou=people,dc=exampleapp,dc=com
 objectclass: top
 objectclass: person
 objectclass: organizationalPerson
@@ -52,10 +48,10 @@ objectclass: inetOrgPerson
 cn: Milena Wozniak
 sn: Wozniak
 uid: mwozniak
-password: secret
-memberOf: cn=managers,ou=groups,dc=memorynotfound,dc=com
+userPassword: mwozniak
+memberOf: cn=managers,ou=groups,dc=exampleapp,dc=com
 
-dn: uid=miroslaw,ou=people,dc=memorynotfound,dc=com
+dn: uid=mmarzec,ou=people,dc=exampleapp,dc=com
 objectclass: top
 objectclass: person
 objectclass: organizationalPerson
@@ -63,5 +59,5 @@ objectclass: inetOrgPerson
 cn: Miroslaw Marzec
 sn: Miroslaw
 uid: mmarzec
-password: secret
-memberOf: cn=developers,ou=groups,dc=memorynotfound,dc=com
+userPassword: mmarzec
+memberOf: cn=developers,ou=groups,dc=exampleapp,dc=com
