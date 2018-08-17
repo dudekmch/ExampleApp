@@ -45,6 +45,17 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 			<version>2.0.1.RELEASE</version>
 		</dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-ldap</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.unboundid</groupId>
+            <artifactId>unboundid-ldapsdk</artifactId>
+        </dependency>
+
 		<!--Hibernate -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
