@@ -17,6 +17,8 @@ public class AdPersonRepositoryImpl implements AdPersonRepository {
 
     private static final String LDAP_QUERY_ATTRIBUTE_CN = "cn";
     private static final String LDAP_QUERY_ATTRIBUTE_UID = "uid";
+    private static final String ATTRIBUTE_OBJECT_CLASS = "objectclass";
+    private static final String ATTRIBUTE_MEMBER_OF = "memberof";
 
     private final LdapTemplate ldapTemplate;
 
@@ -28,8 +30,8 @@ public class AdPersonRepositoryImpl implements AdPersonRepository {
     public List<AdPerson> getPersonNamesFromGroup(String groupName) {
 
         AndFilter andFilter = new AndFilter();
-        andFilter.and(new EqualsFilter("objectclass", "person"));
-        andFilter.and(new EqualsFilter("memberof", "cn=" + groupName + ",ou=groups,dc=memorynotfound,dc=com"));
+        andFilter.and(new EqualsFilter(ATTRIBUTE_OBJECT_CLASS, "person"));
+        andFilter.and(new EqualsFilter(ATTRIBUTE_MEMBER_OF, "cn=" + groupName + ",ou=groups,dc=memorynotfound,dc=com"));
         return ldapTemplate.search("", andFilter.encode(), new UserAttributesMapper());
     }
 
