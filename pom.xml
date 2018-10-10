@@ -25,6 +25,7 @@
 		<hibernate.version>5.2.12.Final</hibernate.version>
 		<springfox.version>2.6.1</springfox.version>
 		<mssql.version>6.1.0.jre8</mssql.version>
+		<querydsl.version>4.2.1</querydsl.version>
 	</properties>
 
 	<dependencies>
@@ -44,6 +45,17 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 			<version>2.0.1.RELEASE</version>
 		</dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-ldap</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.unboundid</groupId>
+            <artifactId>unboundid-ldapsdk</artifactId>
+        </dependency>
+
 		<!--Hibernate -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
@@ -60,13 +72,9 @@
 			</exclusions>
 		</dependency>
 		<dependency>
-			<groupId>com.microsoft.sqlserver</groupId>
-			<artifactId>mssql-jdbc</artifactId>
-			<version>${mssql.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.microsoft.sqlserver</groupId>
-			<artifactId>mssql-jdbc</artifactId>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>6.0.6</version>
 		</dependency>
 
 
@@ -90,6 +98,23 @@
 			<scope>runtime</scope>
 		</dependency>
 
+		<!-- QueryDsl -->
+		<dependency>
+			<groupId>com.querydsl</groupId>
+			<artifactId>querydsl-jpa</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.querydsl</groupId>
+			<artifactId>querydsl-apt</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-commons</artifactId>
+			<version>2.0.9.RELEASE</version>
+		</dependency>
+
 
 	</dependencies>
 
@@ -99,6 +124,25 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+
+			<plugin>
+				<groupId>com.mysema.maven</groupId>
+				<artifactId>apt-maven-plugin</artifactId>
+				<version>1.1.3</version>
+				<executions>
+					<execution>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>process</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>target/generated-sources/querydsl</outputDirectory>
+							<processor>com.querydsl.apt.jpa.JPAAnnotationProcessor</processor>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
 		</plugins>
 	</build>
 
