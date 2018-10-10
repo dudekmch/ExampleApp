@@ -9,9 +9,9 @@ public class PersonToDTOMapperImpl implements PersonToDTOMapper {
     @Override
     public PersonDTO map(Person person) {
         return PersonDTO.builder()
-                        .withId(person.getId())
-                        .withFirstName(person.getFirstName())
-                        .withLastName(person.getLastName())
-                        .build();
+                .withId(person.getId())
+                .withFirstName(person.getFirstName())
+                .withLastName(person.getLastName())
+                .build();
     }
 }
