@@ -4,7 +4,7 @@ import com.cookieIT.exampleApp.ExampleApp.common.dto.CountryDTO;
 
 public interface CountryService {
 
-    CountryDTO getCountryById(Long id);
+    CountryDTO getCountryByName(String name);
 
     long createCountry(CountryDTO personDTO);
 }

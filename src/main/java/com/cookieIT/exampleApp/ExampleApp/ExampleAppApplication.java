@@ -12,7 +12,7 @@ import com.cookieIT.exampleApp.ExampleApp.common.ad.AdPerson;
 import com.cookieIT.exampleApp.ExampleApp.infrastructure.ldap.AdPersonRepository;
 
 @SpringBootApplication
-public class ExampleAppApplication {
+public class  ExampleAppApplication {
 
     private static Logger log = LoggerFactory.getLogger(ExampleAppApplication.class);
 

@@ -6,7 +6,9 @@ import com.cookieIT.exampleApp.ExampleApp.domain.entity.builder.CountryEntityBui
 import com.cookieIT.exampleApp.ExampleApp.domain.entity.mapper.CountryToDTOMapper;
 import com.cookieIT.exampleApp.ExampleApp.domain.repository.CountryRepository;
 import com.cookieIT.exampleApp.ExampleApp.domain.service.CountryService;
+import org.springframework.stereotype.Service;
 
+@Service
 public class CountryServiceImpl implements CountryService {
 
     private CountryRepository countryRepository;
@@ -18,19 +20,23 @@ public class CountryServiceImpl implements CountryService {
     }
 
     @Override
-    public CountryDTO getCountryById(Long id) {
-        return countryToDTOMapper.map(countryRepository.getOne(id));
-
-
+    public CountryDTO getCountryByName(String name) {
+            System.out.println("Service inside");
+        return countryToDTOMapper.map(countryRepository.findCountryByName(name));
     }
 
     @Override
     public long createCountry(CountryDTO personDTO) {
         Country country = new CountryEntityBuilder(personDTO.getName(), personDTO.getCapital(), personDTO.getCurrency(), personDTO
                 .getPopulation()).build();
-        
+
+        System.out.println("Service inside create");
+
+
         countryRepository.save(country);
 
+        System.out.print(country.getId());
+        System.out.print(country.getCapital());
         return country.getId();
     }
 

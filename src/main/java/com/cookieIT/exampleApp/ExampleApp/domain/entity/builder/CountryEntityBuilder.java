@@ -18,6 +18,6 @@ public class CountryEntityBuilder implements EntityBuilder<Country> {
 
     @Override
     public Country build() {
-        return null;
+        return country;
     }
 }

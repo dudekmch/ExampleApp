@@ -11,23 +11,24 @@ package io.spring.guides.gs_producing_web_service;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for country complex type.
+ * <p>Java class for anonymous complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="country">
+ * &lt;complexType>
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
  *         &lt;element name="name" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="population" type="{http://www.w3.org/2001/XMLSchema}long"/>
  *         &lt;element name="capital" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="currency" type="{http://spring.io/guides/gs-producing-web-service}currency"/>
+ *         &lt;element name="currency" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="population" type="{http://www.w3.org/2001/XMLSchema}long"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -37,21 +38,22 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "country", propOrder = {
+@XmlType(name = "", propOrder = {
     "name",
-    "population",
     "capital",
-    "currency"
+    "currency",
+    "population"
 })
-public class Country {
+@XmlRootElement(name = "createCountryRequest")
+public class CreateCountryRequest {
 
     @XmlElement(required = true)
     protected String name;
-    protected long population;
     @XmlElement(required = true)
     protected String capital;
     @XmlElement(required = true)
-    protected Currency currency;
+    protected String currency;
+    protected long population;
 
     /**
      * Gets the value of the name property.
@@ -75,22 +77,6 @@ public class Country {
      */
     public void setName(String value) {
         this.name = value;
-    }
-
-    /**
-     * Gets the value of the population property.
-     * 
-     */
-    public long getPopulation() {
-        return population;
-    }
-
-    /**
-     * Sets the value of the population property.
-     * 
-     */
-    public void setPopulation(long value) {
-        this.population = value;
     }
 
     /**
@@ -122,10 +108,10 @@ public class Country {
      * 
      * @return
      *     possible object is
-     *     {@link Currency }
+     *     {@link String }
      *     
      */
-    public Currency getCurrency() {
+    public String getCurrency() {
         return currency;
     }
 
@@ -134,11 +120,27 @@ public class Country {
      * 
      * @param value
      *     allowed object is
-     *     {@link Currency }
+     *     {@link String }
      *     
      */
-    public void setCurrency(Currency value) {
+    public void setCurrency(String value) {
         this.currency = value;
+    }
+
+    /**
+     * Gets the value of the population property.
+     * 
+     */
+    public long getPopulation() {
+        return population;
+    }
+
+    /**
+     * Sets the value of the population property.
+     * 
+     */
+    public void setPopulation(long value) {
+        this.population = value;
     }
 
 }

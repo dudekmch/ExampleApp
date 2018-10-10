@@ -19,10 +19,10 @@ public class Country implements Serializable {
     private String capital;
 
     @Column
+    @Enumerated(EnumType.STRING)
     private Currency currency;
 
     @Column
-    @Enumerated(EnumType.STRING)
     private long population;
 
     public long getId() {

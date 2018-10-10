@@ -10,7 +10,6 @@ package io.spring.guides.gs_producing_web_service;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
@@ -25,7 +24,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="country" type="{http://spring.io/guides/gs-producing-web-service}country"/>
+ *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}long"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -36,36 +35,27 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "country"
+    "id"
 })
-@XmlRootElement(name = "getCountryResponse")
-public class GetCountryResponse {
+@XmlRootElement(name = "createCountryResponse")
+public class CreateCountryResponse {
 
-    @XmlElement(required = true)
-    protected Country country;
+    protected long id;
 
     /**
-     * Gets the value of the country property.
+     * Gets the value of the id property.
      * 
-     * @return
-     *     possible object is
-     *     {@link Country }
-     *     
      */
-    public Country getCountry() {
-        return country;
+    public long getId() {
+        return id;
     }
 
     /**
-     * Sets the value of the country property.
+     * Sets the value of the id property.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link Country }
-     *     
      */
-    public void setCountry(Country value) {
-        this.country = value;
+    public void setId(long value) {
+        this.id = value;
     }
 
 }
