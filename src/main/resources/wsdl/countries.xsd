@@ -12,21 +12,21 @@
     <xs:element name="getCountryResponse">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="country" type="tns:country"/>
+                <xs:element name="country" type="tns:countryws"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
 
-    <xs:complexType name="country">
+    <xs:complexType name="countryws">
         <xs:sequence>
             <xs:element name="name" type="xs:string"/>
             <xs:element name="population" type="xs:int"/>
             <xs:element name="capital" type="xs:string"/>
-            <xs:element name="currency" type="tns:currency"/>
+            <xs:element name="currency" type="tns:currencyws"/>
         </xs:sequence>
     </xs:complexType>
 
-    <xs:simpleType name="currency">
+    <xs:simpleType name="currencyws">
         <xs:restriction base="xs:string">
             <xs:enumeration value="GBP"/>
             <xs:enumeration value="EUR"/>

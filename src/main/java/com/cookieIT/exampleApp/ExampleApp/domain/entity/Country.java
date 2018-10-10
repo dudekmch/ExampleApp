@@ -1,5 +1,7 @@
 package com.cookieIT.exampleApp.ExampleApp.domain.entity;
 
+import com.cookieIT.exampleApp.ExampleApp.common.Currency;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -17,7 +19,7 @@ public class Country implements Serializable {
     private String capital;
 
     @Column
-    private Enum currency;
+    private Currency currency;
 
     @Column
     @Enumerated(EnumType.STRING)
@@ -47,11 +49,11 @@ public class Country implements Serializable {
         this.capital = capital;
     }
 
-    public Enum getCurrency() {
+    public Currency getCurrency() {
         return currency;
     }
 
-    public void setCurrency(Enum currency) {
+    public void setCurrency(Currency currency) {
         this.currency = currency;
     }
 
