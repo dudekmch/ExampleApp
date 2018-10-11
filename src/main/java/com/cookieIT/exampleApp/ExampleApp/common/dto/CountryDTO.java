@@ -4,12 +4,17 @@ import com.cookieIT.exampleApp.ExampleApp.common.Currency;
 
 public class CountryDTO {
 
+    private long id;
     private String name;
     private String capital;
     private Currency currency;
     private long population;
 
     private CountryDTO() {
+    }
+
+    public long getId() {
+        return id;
     }
 
     public String getName() {
@@ -30,6 +35,7 @@ public class CountryDTO {
 
 
     public static final class CountryDTOBuilder {
+        private long id;
         private String name;
         private String capital;
         private Currency currency;
@@ -40,6 +46,11 @@ public class CountryDTO {
 
         public static CountryDTOBuilder aCountryDTO() {
             return new CountryDTOBuilder();
+        }
+
+        public CountryDTOBuilder withId(long id) {
+            this.id = id;
+            return this;
         }
 
         public CountryDTOBuilder withName(String name) {
@@ -70,5 +81,10 @@ public class CountryDTO {
             countryDTO.capital = this.capital;
             return countryDTO;
         }
+    }
+
+    @Override public String toString() {
+        return "CountryDTO{" + "name='" + name + '\'' + ", capital='" + capital + '\'' + ", currency=" + currency + ", population=" +
+                population + '}';
     }
 }
