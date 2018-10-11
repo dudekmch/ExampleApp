@@ -28,7 +28,7 @@ import io.swagger.annotations.ApiOperation;
 
 @RestController
 @RequestMapping("/rest/v1")
-@Api("Show message api")
+@Api("Person")
 public class PersonApi {
 
     private final PersonManager personManager;

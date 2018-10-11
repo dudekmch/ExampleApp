@@ -8,6 +8,9 @@ import com.cookieIT.exampleApp.ExampleApp.domain.repository.CountryRepository;
 import com.cookieIT.exampleApp.ExampleApp.domain.service.CountryService;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class CountryServiceImpl implements CountryService {
 
@@ -21,7 +24,6 @@ public class CountryServiceImpl implements CountryService {
 
     @Override
     public CountryDTO getCountryByName(String name) {
-            System.out.println("Service inside");
         return countryToDTOMapper.map(countryRepository.findCountryByName(name));
     }
 
@@ -30,14 +32,15 @@ public class CountryServiceImpl implements CountryService {
         Country country = new CountryEntityBuilder(personDTO.getName(), personDTO.getCapital(), personDTO.getCurrency(), personDTO
                 .getPopulation()).build();
 
-        System.out.println("Service inside create");
-
-
         countryRepository.save(country);
 
-        System.out.print(country.getId());
-        System.out.print(country.getCapital());
         return country.getId();
+    }
+
+    @Override
+    public List<CountryDTO> getAllCountries(){
+        List<Country> countries = countryRepository.findAll();
+        return countries.stream().map(countryToDTOMapper::map).collect(Collectors.toList());
     }
 
 }

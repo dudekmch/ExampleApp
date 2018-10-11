@@ -10,8 +10,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import com.cookieIT.exampleApp.ExampleApp.common.ad.AdPerson;
 import com.cookieIT.exampleApp.ExampleApp.infrastructure.ldap.AdPersonRepository;
+import org.springframework.jms.annotation.EnableJms;
 
 @SpringBootApplication
+@EnableJms
 public class  ExampleAppApplication {
 
     private static Logger log = LoggerFactory.getLogger(ExampleAppApplication.class);

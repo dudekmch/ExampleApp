@@ -11,6 +11,7 @@ public class CountryToDTOMapperImpl implements CountryToDTOMapper {
     @Override
     public CountryDTO map(Country country) {
         return CountryDTO.CountryDTOBuilder.aCountryDTO()
+                .withId(country.getId())
                 .withName(country.getName())
                 .withCapital(country.getCapital())
                 .withCurrency(country.getCurrency())
