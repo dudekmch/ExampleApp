@@ -20,39 +20,39 @@ public class Listener {
         this.countryMessageToDTOMapper = countryMessageToDTOMapper;
     }
 
-    @JmsListener(destination = "inbound.queue")
-    //    @SendTo("outbound.queue")
-    public void createCountryMessage(final Message jsonMessage) throws JMSException {
-
-        if (jsonMessage instanceof TextMessage) {
-            countryService.createCountry(countryMessageToDTOMapper.map(jsonMessage));
-        }
-
-        //        return null;
-    }
-
-    @JmsListener(destination = "inbound.queue")
-    //    @SendTo("outbound.queue")
-    public void printMessage(final Message jsonMessage) throws JMSException {
-
-        System.out.println("Received queue message to another jmslistener" + jsonMessage);
-
-    }
-
-    @JmsListener(destination = "inbound.topic")
-//    @SendTo("outbound.topic")
-    public void rcreateCountryFromTopic(final Message jsonMessage) throws JMSException {
-        if(jsonMessage instanceof TextMessage) {
-            countryService.createCountry(countryMessageToDTOMapper.map(jsonMessage));
-        }
-    }
-
-    @JmsListener(destination = "inbound.topic")
-    //    @SendTo("outbound.topic")
-    public void receiveMessageFromTopic(final Message jsonMessage) throws JMSException {
-        if(jsonMessage instanceof TextMessage) {
-            System.out.println("Received topic message to another jmslistener" + jsonMessage);
-        }
-    }
+//    @JmsListener(destination = "inbound.queue")
+//    //    @SendTo("outbound.queue")
+//    public void createCountryMessage(final Message jsonMessage) throws JMSException {
+//
+//        if (jsonMessage instanceof TextMessage) {
+//            countryService.createCountry(countryMessageToDTOMapper.map(jsonMessage));
+//        }
+//
+//        //        return null;
+//    }
+//
+//    @JmsListener(destination = "inbound.queue")
+//    //    @SendTo("outbound.queue")
+//    public void printMessage(final Message jsonMessage) throws JMSException {
+//
+//        System.out.println("Received queue message to another jmslistener" + jsonMessage);
+//
+//    }
+//
+//    @JmsListener(destination = "inbound.topic")
+////    @SendTo("outbound.topic")
+//    public void rcreateCountryFromTopic(final Message jsonMessage) throws JMSException {
+//        if(jsonMessage instanceof TextMessage) {
+//            countryService.createCountry(countryMessageToDTOMapper.map(jsonMessage));
+//        }
+//    }
+//
+//    @JmsListener(destination = "inbound.topic")
+//    //    @SendTo("outbound.topic")
+//    public void receiveMessageFromTopic(final Message jsonMessage) throws JMSException {
+//        if(jsonMessage instanceof TextMessage) {
+//            System.out.println("Received topic message to another jmslistener" + jsonMessage);
+//        }
+//    }
 
 }

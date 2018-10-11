@@ -13,7 +13,7 @@ import com.cookieIT.exampleApp.ExampleApp.infrastructure.ldap.AdPersonRepository
 import org.springframework.jms.annotation.EnableJms;
 
 @SpringBootApplication
-@EnableJms
+//@EnableJms
 public class  ExampleAppApplication {
 
     private static Logger log = LoggerFactory.getLogger(ExampleAppApplication.class);
